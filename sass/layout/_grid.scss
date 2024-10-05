@@ -1,0 +1,92 @@
+
+
+// Base 
+
+.row {
+    max-width: $grid-width;
+    margin: 0 auto;
+
+    &:not(:last-child) {
+        margin-bottom: $gutter-vertical;
+
+        @include respond(tablet-portrait) {
+            margin-bottom: $gutter-vertical-small;
+        }
+    }
+
+    @include clearfix;
+
+    /* This selector means select classes starting with "col-" */
+    [class^="col-"] {
+        float: left;
+
+        &:not(:last-child) {
+            margin-right: $gutter-horizontal;
+            
+            @include respond(big-desktop) {
+                
+                margin-right: 2.7em;
+                margin-bottom: $gutter-vertical-big;
+            }
+
+            @include respond(tablet-portrait) {
+                margin-right: 0;
+                margin-bottom: $gutter-vertical-small;
+            }
+        }
+
+        @include respond(phone) {
+            width: 100% !important;
+        }
+    }
+    
+    .col-1 {
+
+        width: calc(100% - 2 * #{$gutter-horizontal});
+        @include respond()
+    } 
+
+    .col-1-of-2 {
+        width: calc((100% - #{$gutter-horizontal}) / 2);
+    }
+
+    .col-1-of-3 {
+        width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+    }
+
+    .col-2-of-3 {
+        width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+    }
+
+    .col-1-of-4 {
+        width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+    }
+
+    .col-2-of-4 {
+        width: calc(2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
+    }
+
+    .col-3-of-4 {
+        width: calc(3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal});
+    }
+
+    .col-4-of-4 {
+        width: calc(3 * ((100% - 4 * #{$gutter-horizontal}) / 4) + 4 * #{$gutter-horizontal});
+    }
+
+
+
+.card-group {
+    display: flex; /* Aligns the cards side by side */
+    justify-items: space-between; /* Adds space between the cards */
+    padding: .7rem; /* Adds some padding around the group */
+
+    &__card {
+        max-width: 33.33%;
+        background-color: $color-grey-light-1; /* Give cards a background color */
+        padding: .2rem; /* Add some padding inside the cards */
+        border-radius: 10px; /* Rounds the corners */
+        box-shadow: 1rem 2rem 4rem rgba(228, 5, 5, 0.8); /* Adds a subtle shadow */
+    }    
+}
+}
